@@ -19,7 +19,7 @@ the application includes error handling for common issues
 
 # Build and Run
 git clone  https://github.com/Jean1615/ebay_assignment.git  
-cd flexible-calculator  
+cd flexibleCalculator  
 mvn clean install  
 mvn spring-boot:run  
 
