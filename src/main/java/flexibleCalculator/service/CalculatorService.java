@@ -7,6 +7,7 @@ import flexibleCalculator.model.operation.OperationStrategy;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.math.BigDecimal;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -24,16 +25,17 @@ public class CalculatorService {
     public Number calculate(Operation op, Number a, Number b) {
         OperationStrategy operation = operationMap.get(op);
         if (operation == null) {
-            throw new UnsupportedOpeException("Unsupported operation: " + op);
+            throw new UnsupportedOperationException("Unsupported operation: " + op);
         }
-        return operation.calculate(a, b);
+        BigDecimal result = (BigDecimal) operation.calculate(a, b);
+        return result.stripTrailingZeros();
     }
 
     public Number chainCalculate(Number initial, List<ChainCalculationRequest.OperationStep> steps) {
-        Number result = initial;
+        BigDecimal result = new BigDecimal(initial.toString());
         for (ChainCalculationRequest.OperationStep step : steps) {
-            result = calculate(step.getOperation(), result, step.getOperand());
+            result = (BigDecimal) calculate(step.getOperation(), result, step.getOperand());
         }
-        return result;
+        return result.stripTrailingZeros();
     }
 }
