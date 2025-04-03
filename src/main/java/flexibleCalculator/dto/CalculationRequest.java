@@ -3,8 +3,8 @@ package flexibleCalculator.dto;
 import flexibleCalculator.model.Operation;
 public class CalculationRequest {
     private Operation operation;
-    private double num1;
-    private double num2;
+    private Number num1;
+    private Number num2;
 
     // Getters and setters
     public Operation getOperation() {
@@ -13,16 +13,16 @@ public class CalculationRequest {
     public void setOperation(Operation operation) {
         this.operation = operation;
     }
-    public double getNum1() {
+    public Number getNum1() {
         return num1;
     }
-    public void setNum1(double num1) {
+    public void setNum1(Number num1) {
         this.num1 = num1;
     }
-    public double getNum2() {
+    public Number getNum2() {
         return num2;
     }
-    public void setNum2(double num2) {
+    public void setNum2(Number num2) {
         this.num2 = num2;
     }
 }

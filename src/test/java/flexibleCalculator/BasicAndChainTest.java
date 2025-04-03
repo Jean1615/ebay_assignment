@@ -39,7 +39,7 @@ class BasicAndChainTest {
 
     @Test
     void testSubtraction() {
-        assertEquals(new BigDecimal(4).stripTrailingZeros(), calculatorService.calculate(Operation.SUBTRACT, 10, 6));
+        assertEquals(new BigDecimal(-6).stripTrailingZeros(), calculatorService.calculate(Operation.SUBTRACT, 10, 16));
     }
 
     @Test

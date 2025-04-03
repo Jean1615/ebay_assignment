@@ -18,11 +18,11 @@ public class CalculatorController {
 
     @PostMapping("/calculate")
     public CalculationResponse calculate(@RequestBody CalculationRequest request) {
-        double result = calculatorService.calculate(
+        Number result = calculatorService.calculate(
                 request.getOperation(),
                 request.getNum1(),
                 request.getNum2()
-        ).doubleValue();
+        );
         return new CalculationResponse(result);
     }
 
